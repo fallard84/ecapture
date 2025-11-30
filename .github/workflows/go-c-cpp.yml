@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-20.04
     name: build on ubuntu-20.04 x86_64
     steps:
+      # See https://github.com/bullfrogsec/bullfrog for more options
+      - name: Bullfrog
+        uses: bullfrogsec/bullfrog@1831f79cce8ad602eef14d2163873f27081ebfb3 # v0.8.4
+        with:
+          api-token: ${{ secrets.BULLFROG_API_TOKEN }}
+          egress-policy: audit
       - uses: actions/setup-go@v5
         with:
           go-version: '1.21.0'
@@ -55,6 +61,12 @@ jobs:
     runs-on: ubuntu-22.04
     name: build on ubuntu-22.04 x86_64
     steps:
+      # See https://github.com/bullfrogsec/bullfrog for more options
+      - name: Bullfrog
+        uses: bullfrogsec/bullfrog@1831f79cce8ad602eef14d2163873f27081ebfb3 # v0.8.4
+        with:
+          api-token: ${{ secrets.BULLFROG_API_TOKEN }}
+          egress-policy: audit
       - uses: actions/setup-go@v5
         with:
           go-version: '1.21.0'
@@ -121,6 +133,12 @@ jobs:
           - arch: aarch64
             distro: ubuntu22.04
     steps:
+      # See https://github.com/bullfrogsec/bullfrog for more options
+      - name: Bullfrog
+        uses: bullfrogsec/bullfrog@1831f79cce8ad602eef14d2163873f27081ebfb3 # v0.8.4
+        with:
+          api-token: ${{ secrets.BULLFROG_API_TOKEN }}
+          egress-policy: audit
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
